@@ -1,6 +1,6 @@
 {
 	"name" : "mezon/utils",
-	"description" : "https://github.com/alexdodonov/article-model",
+	"description" : "https://github.com/alexdodonov/mezon-utils",
 	"license" : "Commercial",
 	"authors" : [{
 			"name" : "Dodonov Alexey",
@@ -14,11 +14,11 @@
 	},
 	"support" : {
 		"email" : "alexey@dodonov.pro",
-		"issues" : "https://github.com/alexdodonov/article-model/issues",
-		"source" : "https://github.com/alexdodonov/article-model"
+		"issues" : "https://github.com/alexdodonov/mezon-utils/issues",
+		"source" : "https://github.com/alexdodonov/mezon-utils"
 	},
 	"minimum-stability" : "dev",
-	"homepage" : "https://github.com/alexdodonov/article-model",
+	"homepage" : "https://github.com/alexdodonov/mezon-utils",
 	"prefer-stable" : true,
 	"autoload": {
 		"psr-4": {
