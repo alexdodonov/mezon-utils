@@ -1,7 +1,7 @@
 {
 	"name" : "mezon/utils",
 	"description" : "https://github.com/alexdodonov/mezon-utils",
-	"license" : "Commercial",
+	"license" : "MIT",
 	"authors" : [{
 			"name" : "Dodonov Alexey",
 			"email" : "alexey@dodonov.pro",
