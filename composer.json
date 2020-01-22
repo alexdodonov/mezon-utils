@@ -1,7 +1,7 @@
 {
 	"name" : "mezon/utils",
-	"description" : "Small utils wich can not be placed in mezon/core package",
-	"license" : "MIT",
+	"description" : "https://github.com/alexdodonov/article-model",
+	"license" : "Commercial",
 	"authors" : [{
 			"name" : "Dodonov Alexey",
 			"email" : "alexey@dodonov.pro",
@@ -14,13 +14,15 @@
 	},
 	"support" : {
 		"email" : "alexey@dodonov.pro",
-		"issues" : "https://github.com/alexdodonov/mezon-utils/issues",
-		"source" : "https://github.com/alexdodonov/mezon-utils"
+		"issues" : "https://github.com/alexdodonov/article-model/issues",
+		"source" : "https://github.com/alexdodonov/article-model"
 	},
 	"minimum-stability" : "dev",
-	"homepage" : "https://github.com/alexdodonov/mezon-utils",
-    "prefer-stable": true,
-    "autoload": {
-        "files": ["autoloader.php"]
-    }
+	"homepage" : "https://github.com/alexdodonov/article-model",
+	"prefer-stable" : true,
+	"autoload": {
+		"psr-4": {
+			"Mezon\\Utils\\": ""
+		}
+	}
 }

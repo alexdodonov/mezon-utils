@@ -28,5 +28,3 @@ class UtilsTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($Result, 'Invalid result');
     }
 }
-
-?>

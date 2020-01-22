@@ -1,5 +1,5 @@
 <?php
-namespace Mezon;
+namespace Mezon\Utils;
 
 /**
  * Class Utils
@@ -176,5 +176,3 @@ class Utils
         return ($Text);
     }
 }
-
-?>
