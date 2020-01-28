@@ -10,7 +10,7 @@ class UtilsTest extends \PHPUnit\Framework\TestCase
     public function testBotSuccess()
     {
         // test body
-        $Result = \Mezon\Utils::isBot('YandexCalendar');
+        $Result = \Mezon\Utils\Utils::isBot('YandexCalendar');
 
         // assertions
         $this->assertTrue($Result, 'Invalid result');
@@ -22,7 +22,7 @@ class UtilsTest extends \PHPUnit\Framework\TestCase
     public function testBotFailed()
     {
         // test body
-        $Result = \Mezon\Utils::isBot('Unexisting Bot');
+        $Result = \Mezon\Utils\Utils::isBot('Unexisting Bot');
 
         // assertions
         $this->assertFalse($Result, 'Invalid result');
