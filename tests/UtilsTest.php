@@ -46,7 +46,7 @@ class UtilsTest extends \PHPUnit\Framework\TestCase
     public function testTranslitUrl():void{
         // test body
         $result = \Mezon\Utils\Utils::translitUrl('а б?"');
-        
+
         // assertions
         $this->assertEquals('a-b', $result);
     }
