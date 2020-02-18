@@ -65,62 +65,106 @@ class Utils
             }
         }
 
-        return (false);
+        return false;
     }
 
     /**
      * Method splits multybyte string into chars
      *
-     * @param string $Str
+     * @param string $str
      *            string tobe splitted
      * @return array chars
      */
-    public static function mbStrSplit(string $Str): array
+    public static function mbStrSplit(string $str): array
     {
-        return (preg_split('~~u', $Str, null, PREG_SPLIT_NO_EMPTY));
+        return preg_split('~~u', $str, null, PREG_SPLIT_NO_EMPTY);
     }
 
     /**
      * Simple transliterator
      *
-     * @param string $Str
+     * @param string $str
      *            string to translit
-     * @param string $From
+     * @param string $from
      *            origin sybmols
-     * @param string $To
+     * @param string $to
      *            target symbols
      * @return string translitted string
      */
-    public static function mbStrTr(string $Str, string $From, string $To): string
+    public static function mbStrTr(string $str, string $from, string $to): string
     {
-        return (str_replace(self::mbStrSplit($From), self::mbStrSplit($To), $Str));
+        return str_replace(self::mbStrSplit($from), self::mbStrSplit($to), $str);
     }
 
     /**
      * Simple transliterator
      *
-     * @param string $Str
+     * @param string $str
      *            string to translit
      * @param array $Sybstitution
      *            substitutions in key+value pairs
      * @return string translitted string
      */
-    public static function mbStrTrArray(string $Str, array $Sybstitution): string
+    public static function mbStrTrArray(string $str, array $Sybstitution): string
     {
-        return (str_replace(array_keys($Sybstitution), array_values($Sybstitution), $Str));
+        return str_replace(array_keys($Sybstitution), array_values($Sybstitution), $str);
     }
 
     /**
-     * Method translits string
+     * Method returns translit dictionary
      *
-     * @param string $Text
-     *            string to be translitted
-     * @return string translitted string
+     * @return array translit dictionary
      */
-    public static function translit(string $Text): string
+    public static function getTranslitDictionary(): array
     {
-        $Text = self::mbStrTr($Text, "абвгдежзийклмнопрстуфыэАБВГДЕЖЗИЙКЛМНОПРСТУФЫЭ", "abvgdegziyklmnoprstufieABVGDEGZIYKLMNOPRSTUFIE");
-        $Text = self::mbStrTrArray($Text, [
+        return [
+            'Э' => 'E',
+            'Ы' => 'I',
+            'Ф' => 'F',
+            'У' => 'U',
+            'Т' => 'T',
+            'С' => 'S',
+            'Р' => 'R',
+            'П' => 'P',
+            'О' => 'O',
+            'Н' => 'N',
+            'М' => 'M',
+            'Л' => 'L',
+            'К' => 'K',
+            'Й' => 'Y',
+            'И' => 'I',
+            'З' => 'Z',
+            'Ж' => 'G',
+            'Е' => 'E',
+            'Д' => 'D',
+            'Г' => 'G',
+            'В' => 'V',
+            'Б' => 'B',
+            'А' => 'A',
+            'э' => 'e',
+            'ы' => 'i',
+            'ф' => 'f',
+            'у' => 'u',
+            'т' => 't',
+            'с' => 's',
+            'р' => 'r',
+            'п' => 'p',
+            'о' => 'o',
+            'н' => 'n',
+            'м' => 'm',
+            'л' => 'l',
+            'к' => 'k',
+            'й' => 'y',
+            'и' => 'i',
+            'з' => 'z',
+            'ж' => 'g',
+            'е' => 'e',
+            'д' => 'd',
+            'г' => 'g',
+            'в' => 'v',
+            'б' => 'b',
+            'а' => 'a',
+            ' ' => ' ',
             'ё' => "yo",
             'х' => "h",
             'ц' => "ts",
@@ -141,38 +185,42 @@ class Utils
             'Ь' => '',
             'Ю' => "Yu",
             'Я' => "Ya"
-        ]);
-        return ($Text);
+        ];
     }
 
     /**
-     * Method translits string into URL.
-     * I.e. all spaces will be replaced in '-'
+     * Method translits string
      *
-     * @param string $Text
+     * @param string $text
      *            string to be translitted
      * @return string translitted string
      */
-    public static function translitUrl(string $Text): string
+    public static function translit(string $text): string
     {
-        $Text = self::translit($Text);
-        $Text = str_replace([
-            ' ',
-            '!',
-            '#',
-            '$',
-            '%',
-            ':',
-            '/'
-        ], [
-            '-',
-            '',
-            '',
-            '',
-            '',
-            '',
-            ''
-        ], $Text);
-        return ($Text);
+        return self::mbStrTrArray($text, self::getTranslitDictionary());
+    }
+
+    /**
+     * Method translits string into URL
+     * I.e.
+     * all spaces will be replaced in '-'
+     *
+     * @param string $text
+     *            string to be translitted
+     * @return string translitted string
+     */
+    public static function translitUrl(string $text): string
+    {
+        $result = '';
+        $text = self::mbStrSplit($text);
+        $dictionary = self::getTranslitDictionary();
+
+        foreach ($text as $letter) {
+            if (isset($dictionary[$letter])) {
+                $result .= $dictionary[$letter];
+            }
+        }
+
+        return str_replace(' ', '-', $result);
     }
 }
