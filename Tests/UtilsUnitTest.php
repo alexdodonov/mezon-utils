@@ -1,7 +1,7 @@
 <?php
-require_once (__DIR__ . '/../utils.php');
+require_once (__DIR__ . '/../Utils.php');
 
-class UtilsTest extends \PHPUnit\Framework\TestCase
+class UtilsUnitTest extends \PHPUnit\Framework\TestCase
 {
 
     /**
