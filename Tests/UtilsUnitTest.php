@@ -52,6 +52,9 @@ class UtilsUnitTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('a-b', $result);
     }
 
+    /**
+     * Testing mbStrTr method
+     */
     public function testMbStrTr(): void
     {
         // test body
