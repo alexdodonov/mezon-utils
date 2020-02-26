@@ -43,11 +43,21 @@ class UtilsUnitTest extends \PHPUnit\Framework\TestCase
     /**
      * Testing url transliteration
      */
-    public function testTranslitUrl():void{
+    public function testTranslitUrl(): void
+    {
         // test body
         $result = \Mezon\Utils\Utils::translitUrl('а б?"');
 
         // assertions
         $this->assertEquals('a-b', $result);
+    }
+
+    public function testMbStrTr(): void
+    {
+        // test body
+        $result = \Mezon\Utils\Utils::mbStrTr('аб', 'аб', 'вг');
+
+        // assertions
+        $this->assertEquals('вг', $result);
     }
 }
