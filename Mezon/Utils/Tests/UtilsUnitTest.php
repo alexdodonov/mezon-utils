@@ -1,7 +1,13 @@
 <?php
-require_once (__DIR__ . '/../Utils.php');
+namespace Mezon\Utils\Tests;
 
-class UtilsUnitTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+use Mezon\Utils\Utils;
+
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
+class UtilsUnitTest extends TestCase
 {
 
     /**
@@ -10,7 +16,7 @@ class UtilsUnitTest extends \PHPUnit\Framework\TestCase
     public function testBotSuccess(): void
     {
         // test body
-        $result = \Mezon\Utils\Utils::isBot('YandexCalendar');
+        $result = Utils::isBot('YandexCalendar');
 
         // assertions
         $this->assertTrue($result, 'Invalid result');
@@ -22,7 +28,7 @@ class UtilsUnitTest extends \PHPUnit\Framework\TestCase
     public function testBotFailed(): void
     {
         // test body
-        $result = \Mezon\Utils\Utils::isBot('Unexisting Bot');
+        $result = Utils::isBot('Unexisting Bot');
 
         // assertions
         $this->assertFalse($result, 'Invalid result');
@@ -34,7 +40,7 @@ class UtilsUnitTest extends \PHPUnit\Framework\TestCase
     public function testTranslit(): void
     {
         // test body
-        $result = \Mezon\Utils\Utils::translit('а б');
+        $result = Utils::translit('а б');
 
         // assertions
         $this->assertEquals('a b', $result);
@@ -46,7 +52,7 @@ class UtilsUnitTest extends \PHPUnit\Framework\TestCase
     public function testTranslitUrl(): void
     {
         // test body
-        $result = \Mezon\Utils\Utils::translitUrl('а б?"');
+        $result = Utils::translitUrl('а б?"');
 
         // assertions
         $this->assertEquals('a-b', $result);
@@ -58,7 +64,7 @@ class UtilsUnitTest extends \PHPUnit\Framework\TestCase
     public function testMbStrTr(): void
     {
         // test body
-        $result = \Mezon\Utils\Utils::mbStrTr('аб', 'аб', 'вг');
+        $result = Utils::mbStrTr('аб', 'аб', 'вг');
 
         // assertions
         $this->assertEquals('вг', $result);

@@ -77,7 +77,7 @@ class Utils
      */
     public static function mbStrSplit(string $str): array
     {
-        return preg_split('~~u', $str, null, PREG_SPLIT_NO_EMPTY);
+        return preg_split('~~u', $str, 0, PREG_SPLIT_NO_EMPTY);
     }
 
     /**
@@ -185,16 +185,16 @@ class Utils
             'Ь' => '',
             'Ю' => "Yu",
             'Я' => "Ya",
-            '0'=>'0',
-            '1'=>'1',
-            '2'=>'2',
-            '3'=>'3',
-            '4'=>'4',
-            '5'=>'5',
-            '6'=>'6',
-            '7'=>'7',
-            '8'=>'8',
-            '9'=>'9'
+            '0' => '0',
+            '1' => '1',
+            '2' => '2',
+            '3' => '3',
+            '4' => '4',
+            '5' => '5',
+            '6' => '6',
+            '7' => '7',
+            '8' => '8',
+            '9' => '9'
         ];
     }
 

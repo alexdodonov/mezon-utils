@@ -8,9 +8,11 @@
 	</php>
 
 	<testsuites>
-		<testsuite name="Test Suite">
-			<directory>tests</directory>
+		<testsuite name="unit">
+			<directory>./Mezon</directory>
 		</testsuite>
+		<testsuite name="all">
+			<directory>./Mezon</directory></testsuite>
 	</testsuites>
 
 	<filter>
