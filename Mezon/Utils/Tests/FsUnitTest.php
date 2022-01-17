@@ -16,6 +16,9 @@ class FsUnitTest extends TestCase
      */
     public function testEmptyAndNonEmptyDirs(): void
     {
+        // setup
+        mkdir(__DIR__ . '/EmptyDir');
+
         // test body and assertions
         $this->assertFalse(Fs::isDirectoryEmpty(__DIR__));
         $this->assertTrue(Fs::isDirectoryEmpty(__DIR__ . '/EmptyDir'));
