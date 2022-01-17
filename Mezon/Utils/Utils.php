@@ -4,15 +4,15 @@ namespace Mezon\Utils;
 /**
  * Class Utils
  *
- * @package Mezon
- * @subpackage Utils
+ * @package Utils
+ * @subpackage Common
  * @author Dodonov A.A.
  * @version v.1.0 (2019/09/20)
- * @copyright Copyright (c) 2019, aeon.org
+ * @copyright Copyright (c) 2019, aeon.su
  */
 
 /**
- * Utilities
+ * Common utilities
  */
 class Utils
 {
@@ -75,7 +75,7 @@ class Utils
      *            string tobe splitted
      * @return array chars
      */
-    public static function mbStrSplit(string $str): array
+    private static function mbStrSplit(string $str): array
     {
         return preg_split('~~u', $str, 0, PREG_SPLIT_NO_EMPTY);
     }
@@ -101,13 +101,13 @@ class Utils
      *
      * @param string $str
      *            string to translit
-     * @param array $Sybstitution
+     * @param array $substitution
      *            substitutions in key+value pairs
      * @return string translitted string
      */
-    public static function mbStrTrArray(string $str, array $Sybstitution): string
+    private static function mbStrTrArray(string $str, array $substitution): string
     {
-        return str_replace(array_keys($Sybstitution), array_values($Sybstitution), $str);
+        return str_replace(array_keys($substitution), array_values($substitution), $str);
     }
 
     /**
@@ -115,8 +115,10 @@ class Utils
      *
      * @return array translit dictionary
      */
-    public static function getTranslitDictionary(): array
+    private static function getTranslitDictionary(): array
     {
+        // TODO store dictionary in the separate *.json file
+        // TODO setup locale from setting
         return [
             'Э' => 'E',
             'Ы' => 'I',
