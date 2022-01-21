@@ -18,6 +18,7 @@ class FsUnitTest extends TestCase
     {
         // setup
         @mkdir(__DIR__ . '/EmptyDir');
+        Fs::cleanUpDirectory(__DIR__ . '/EmptyDir');
 
         // test body and assertions
         $this->assertFalse(Fs::isDirectoryEmpty(__DIR__));
@@ -36,5 +37,21 @@ class FsUnitTest extends TestCase
 
         // test body
         Fs::isDirectoryEmpty('./unexisting');
+    }
+
+    /**
+     * Testing directory cleanup
+     */
+    public function testCleanUpDirectory(): void
+    {
+        // setup
+        @mkdir(__DIR__ . '/EmptyDir');
+        file_put_contents(__DIR__ . '/EmptyDir/1', '1');
+
+        // test body
+        Fs::cleanUpDirectory(__DIR__ . '/EmptyDir');
+
+        // assertions
+        $this->assertTrue(Fs::isDirectoryEmpty(__DIR__ . '/EmptyDir'));
     }
 }

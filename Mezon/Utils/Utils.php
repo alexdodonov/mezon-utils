@@ -68,6 +68,7 @@ class Utils
         return false;
     }
 
+    // TODO make class Translit here and move there all translit methods
     /**
      * Method splits multybyte string into chars
      *
@@ -107,7 +108,7 @@ class Utils
      */
     private static function mbStrTrArray(string $str, array $substitution): string
     {
-        return str_replace(array_keys($substitution), array_values($substitution), $str);
+        return str_replace(array_keys($substitution), $substitution, $str);
     }
 
     /**

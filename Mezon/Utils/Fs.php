@@ -32,4 +32,21 @@ class Fs
 
         return count(scandir($path)) == 2;
     }
+
+    /**
+     * Method cleans up all files in the directory
+     *
+     * @param string $path
+     *            path to the directory
+     */
+    public static function cleanUpDirectory(string $path): void
+    {
+        $files = scandir($path);
+
+        for ($i = 2; $i < count($files); $i ++) {
+            if (is_file($path . '/' . $files[$i])) {
+                unlink($path . '/' . $files[$i]);
+            }
+        }
+    }
 }

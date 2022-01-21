@@ -17,9 +17,9 @@
 
 	<filter>
 		<whitelist>
-			<directory>./</directory>
+			<directory>./Mezon</directory>
 			<exclude>
-				<directory>./tests</directory>
+				<directory>./Mezon/Utils/Tests</directory>
 				<directory>./vendor</directory>
 			</exclude>
 		</whitelist>

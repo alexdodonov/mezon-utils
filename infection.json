@@ -20,17 +20,7 @@
 		"@default": true,
 		"DecrementInteger": {
 			"ignore": [
-				"Mezon\\Rules\\AnyRuleFromSet::validate::32"
-			]
-		},
-		"GreaterThan": {
-			"ignore": [
-				"Mezon\\Rules\\AnyRuleFromSet::validate::41"
-			]
-		},
-		"LogicalAnd": {
-			"ignore": [
-				"Mezon\\Rules\\MoreThanOneCharFromSet::validate::54"
+				"Mezon\\Utils\\Fs::cleanUpDirectory::46"
 			]
 		}
 	}
