@@ -74,7 +74,7 @@ class Utils
      *
      * @param string $str
      *            string tobe splitted
-     * @return array chars
+     * @return string[] chars
      */
     private static function mbStrSplit(string $str): array
     {
@@ -102,7 +102,7 @@ class Utils
      *
      * @param string $str
      *            string to translit
-     * @param array $substitution
+     * @param string[] $substitution
      *            substitutions in key+value pairs
      * @return string translitted string
      */
@@ -114,7 +114,7 @@ class Utils
     /**
      * Method returns translit dictionary
      *
-     * @return array translit dictionary
+     * @return string[] translit dictionary
      */
     private static function getTranslitDictionary(): array
     {
