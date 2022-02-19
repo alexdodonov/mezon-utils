@@ -49,4 +49,18 @@ class Fs
             }
         }
     }
+
+    /**
+     * Method returns class path
+     *
+     * @param object $object
+     *            object
+     * @return string
+     */
+    public static function getClassPath(object $object): string
+    {
+        $reflector = new \ReflectionClass(get_class($object));
+
+        return dirname($reflector->getFileName());
+    }
 }

@@ -5,6 +5,7 @@ use PHPUnit\Framework\TestCase;
 use Mezon\Utils\Utils;
 
 /**
+ *
  * @psalm-suppress PropertyNotSetInConstructor
  */
 class UtilsUnitTest extends TestCase
@@ -15,11 +16,9 @@ class UtilsUnitTest extends TestCase
      */
     public function testBotSuccess(): void
     {
-        // test body
-        $result = Utils::isBot('YandexCalendar');
-
-        // assertions
-        $this->assertTrue($result, 'Invalid result');
+        // test body and assertions
+        $this->assertTrue(Utils::isBot('YandexCalendar'));
+        $this->assertTrue(Utils::isBot('Googlebot'));
     }
 
     /**
@@ -31,7 +30,7 @@ class UtilsUnitTest extends TestCase
         $result = Utils::isBot('Unexisting Bot');
 
         // assertions
-        $this->assertFalse($result, 'Invalid result');
+        $this->assertFalse($result);
     }
 
     /**
@@ -40,10 +39,10 @@ class UtilsUnitTest extends TestCase
     public function testTranslit(): void
     {
         // test body
-        $result = Utils::translit('а б');
+        $result = Utils::translit('а б Э');
 
         // assertions
-        $this->assertEquals('a b', $result);
+        $this->assertEquals('a b E', $result);
     }
 
     /**

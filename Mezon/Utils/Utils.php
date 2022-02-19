@@ -20,13 +20,13 @@ class Utils
     /**
      * Method returns true if any bot was detected
      *
-     * @param string $UserAgent
+     * @param string $userAgent
      *            Visitor's user agent
      * @return boolean True|false
      */
-    public static function isBot(string $UserAgent): bool
+    public static function isBot(string $userAgent): bool
     {
-        $KnownBots = [
+        $knownBots = [
             'Googlebot',
             'Bingbot',
             'Slurp',
@@ -59,9 +59,9 @@ class Utils
             'YandexVerticals'
         ];
 
-        foreach ($KnownBots as $BotSignature) {
-            if (stripos($UserAgent, $BotSignature) !== false) {
-                return (true);
+        foreach ($knownBots as $botSignature) {
+            if (stripos($userAgent, $botSignature) !== false) {
+                return true;
             }
         }
 

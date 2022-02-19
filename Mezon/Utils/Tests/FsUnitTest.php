@@ -3,6 +3,7 @@ namespace Mezon\Utils\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Mezon\Utils\Fs;
+use Mezon\Utils\Utils;
 
 /**
  *
@@ -53,5 +54,17 @@ class FsUnitTest extends TestCase
 
         // assertions
         $this->assertTrue(Fs::isDirectoryEmpty(__DIR__ . '/EmptyDir'));
+    }
+
+    /**
+     * Testing method getClassPath
+     */
+    public function testGetClassPath(): void
+    {
+        // test body
+        $path = Fs::getClassPath($this);
+
+        // assertions
+        $this->assertEquals(__DIR__, $path);
     }
 }
