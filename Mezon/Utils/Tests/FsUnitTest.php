@@ -3,7 +3,6 @@ namespace Mezon\Utils\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Mezon\Utils\Fs;
-use Mezon\Utils\Utils;
 
 /**
  *
